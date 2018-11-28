@@ -1,0 +1,5 @@
+[run]
+include = insights_ansible_runner_poc/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
