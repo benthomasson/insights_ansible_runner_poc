@@ -71,6 +71,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'insights_ansible_runner_poc.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
+    'insights_integration',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -203,17 +204,6 @@ FIXTURE_DIRS = (
     str(APPS_DIR.path('fixtures')),
 )
 
-# SECURITY
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
-SESSION_COOKIE_HTTPONLY = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
-SECURE_BROWSER_XSS_FILTER = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
-X_FRAME_OPTIONS = 'DENY'
-
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
@@ -248,3 +238,4 @@ SOCIALACCOUNT_ADAPTER = 'insights_ansible_runner_poc.users.adapters.SocialAccoun
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+INSIGHTS_URL = 'https://access.redhat.com'

@@ -9,7 +9,7 @@ class LaunchButton extends PureComponent {
     return (
       <button style={buttonStyle} onClick={this.props.action} disabled={!this.props.enabled}>
       <i style={buttonBlockStyle}>
-      <img style={buttonLogoStyle} src={process.env.PUBLIC_URL + "/images/l_ansible-blue.svg"} />
+      <img style={buttonLogoStyle} src={process.env.PUBLIC_URL + "/static/images/l_ansible-blue.svg"} />
       </i>
       <span>Launch Playbook</span>
       </button>
