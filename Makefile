@@ -8,7 +8,7 @@ build:
 	docker-compose -f local.yml build
 
 ui:
-	cd insights_integration_react_frontend; make deploy
+	cd insights_integration_react_frontend; make install build deploy
 
 up:
 	docker-compose -f local.yml up
