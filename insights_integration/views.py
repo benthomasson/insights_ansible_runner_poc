@@ -73,14 +73,14 @@ class TaskResultViewSet(viewsets.ModelViewSet):
     queryset = TaskResult.objects.all()
     serializer_class = TaskResultSerializer
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('task_result_id','name','host','status',)
+    filter_fields = ('task_result_id','name','host','status', 'taskresultplaybookrun__playbook_run')
 
 
 class TaskResultPlaybookRunViewSet(viewsets.ModelViewSet):
     queryset = TaskResultPlaybookRun.objects.all()
     serializer_class = TaskResultPlaybookRunSerializer
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('task_result_playbook_run_id','task_result','playbook_run',)
+    filter_fields = ('task_result_playbook_run_id','task_result','playbook_run', 'task_result__host')
 
 
 class WorkerViewSet(viewsets.ModelViewSet):
