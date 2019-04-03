@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  DJANGO_ACCOUNT_ALLOW_REGISTRATION: "True"
+  DJANGO_ADMIN_URL: 2zmVh4rg7yC8gZh3xZ5yGv0jwrXB4fYx/
+  DJANGO_ALLOWED_HOSTS: localhost
+  DJANGO_AWS_ACCESS_KEY_ID: ""
+  DJANGO_AWS_SECRET_ACCESS_KEY: ""
+  DJANGO_AWS_STORAGE_BUCKET_NAME: ""
+  DJANGO_SECRET_KEY: qBFawhFFWCAQk1JnBMhY5X6F9JLHTINp6cpZ3r1XguVOj4ddnZM3fQvM8YEY1chN
+  DJANGO_SECURE_SSL_REDIRECT: "False"
+  DJANGO_SERVER_EMAIL: ""
+  DJANGO_SETTINGS_MODULE: config.settings.production
+  MAILGUN_API_KEY: ""
+  MAILGUN_DOMAIN: ""
+  REDIS_URL: redis://redis:6379/0
+  WEB_CONCURRENCY: "4"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: django-envs--production--django
+  name: django-envs--production--django

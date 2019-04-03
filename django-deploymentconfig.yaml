@@ -1,0 +1,137 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f production.yml --provider OpenShift
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: django
+  name: django
+spec:
+  replicas: 1
+  selector:
+    io.kompose.service: django
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: django
+    spec:
+      containers:
+      - args:
+        - /start
+        env:
+        - name: DJANGO_ACCOUNT_ALLOW_REGISTRATION
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_ACCOUNT_ALLOW_REGISTRATION
+              name: django-envs--production--django
+        - name: DJANGO_ADMIN_URL
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_ADMIN_URL
+              name: django-envs--production--django
+        - name: DJANGO_ALLOWED_HOSTS
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_ALLOWED_HOSTS
+              name: django-envs--production--django
+        - name: DJANGO_AWS_ACCESS_KEY_ID
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_AWS_ACCESS_KEY_ID
+              name: django-envs--production--django
+        - name: DJANGO_AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_AWS_SECRET_ACCESS_KEY
+              name: django-envs--production--django
+        - name: DJANGO_AWS_STORAGE_BUCKET_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_AWS_STORAGE_BUCKET_NAME
+              name: django-envs--production--django
+        - name: DJANGO_SECRET_KEY
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_SECRET_KEY
+              name: django-envs--production--django
+        - name: DJANGO_SECURE_SSL_REDIRECT
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_SECURE_SSL_REDIRECT
+              name: django-envs--production--django
+        - name: DJANGO_SERVER_EMAIL
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_SERVER_EMAIL
+              name: django-envs--production--django
+        - name: DJANGO_SETTINGS_MODULE
+          valueFrom:
+            configMapKeyRef:
+              key: DJANGO_SETTINGS_MODULE
+              name: django-envs--production--django
+        - name: MAILGUN_API_KEY
+          valueFrom:
+            configMapKeyRef:
+              key: MAILGUN_API_KEY
+              name: django-envs--production--django
+        - name: MAILGUN_DOMAIN
+          valueFrom:
+            configMapKeyRef:
+              key: MAILGUN_DOMAIN
+              name: django-envs--production--django
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_DB
+              name: django-envs--production--postgres
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_HOST
+              name: django-envs--production--postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_PASSWORD
+              name: django-envs--production--postgres
+        - name: POSTGRES_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_PORT
+              name: django-envs--production--postgres
+        - name: POSTGRES_USER
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_USER
+              name: django-envs--production--postgres
+        - name: REDIS_URL
+          valueFrom:
+            configMapKeyRef:
+              key: REDIS_URL
+              name: django-envs--production--django
+        - name: WEB_CONCURRENCY
+          valueFrom:
+            configMapKeyRef:
+              key: WEB_CONCURRENCY
+              name: django-envs--production--django
+        image: ' '
+        name: django
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - django
+      from:
+        kind: ImageStreamTag
+        name: django:latest
+    type: ImageChange
+status: {}
