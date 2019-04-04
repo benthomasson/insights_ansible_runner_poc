@@ -10,7 +10,7 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: benthomasson/insights_ansible_runner_poc_production_postgres
+      name: registry.access.redhat.com/rhscl/postgresql-96-rhel7
     generation: null
     importPolicy: {}
     name: latest

@@ -84,30 +84,30 @@ spec:
             configMapKeyRef:
               key: MAILGUN_DOMAIN
               name: django-envs--production--django
-        - name: POSTGRES_DB
+        - name: POSTGRESQL_DATABASE
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_DB
+              key: POSTGRESQL_DATABASE
               name: django-envs--production--postgres
-        - name: POSTGRES_HOST
+        - name: POSTGRESQL_HOST
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_HOST
+              key: POSTGRESQL_HOST
               name: django-envs--production--postgres
-        - name: POSTGRES_PASSWORD
+        - name: POSTGRESQL_PASSWORD
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_PASSWORD
+              key: POSTGRESQL_PASSWORD
               name: django-envs--production--postgres
-        - name: POSTGRES_PORT
+        - name: POSTGRESQL_PORT
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_PORT
+              key: POSTGRESQL_PORT
               name: django-envs--production--postgres
-        - name: POSTGRES_USER
+        - name: POSTGRESQL_USER
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_USER
+              key: POSTGRESQL_USER
               name: django-envs--production--postgres
         - name: REDIS_URL
           valueFrom:
@@ -121,6 +121,8 @@ spec:
               name: django-envs--production--django
         image: ' '
         name: django
+        ports:
+        - containerPort: 8000
         resources: {}
       restartPolicy: Always
   test: false

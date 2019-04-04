@@ -1,10 +1,10 @@
 apiVersion: v1
 data:
-  POSTGRES_DB: insights_ansible_runner_poc
-  POSTGRES_HOST: postgres
-  POSTGRES_PASSWORD: debug
-  POSTGRES_PORT: "5432"
-  POSTGRES_USER: debug
+  POSTGRESQL_DATABASE: insights_ansible_runner_poc
+  POSTGRESQL_HOST: postgres
+  POSTGRESQL_PASSWORD: debug
+  POSTGRESQL_PORT: "5432"
+  POSTGRESQL_USER: debug
 kind: ConfigMap
 metadata:
   creationTimestamp: null

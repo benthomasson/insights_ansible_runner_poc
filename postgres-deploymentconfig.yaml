@@ -23,33 +23,35 @@ spec:
     spec:
       containers:
       - env:
-        - name: POSTGRES_DB
+        - name: POSTGRESQL_DATABASE
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_DB
+              key: POSTGRESQL_DATABASE
               name: postgres-envs--production--postgres
-        - name: POSTGRES_HOST
+        - name: POSTGRESQL_HOST
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_HOST
+              key: POSTGRESQL_HOST
               name: postgres-envs--production--postgres
-        - name: POSTGRES_PASSWORD
+        - name: POSTGRESQL_PASSWORD
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_PASSWORD
+              key: POSTGRESQL_PASSWORD
               name: postgres-envs--production--postgres
-        - name: POSTGRES_PORT
+        - name: POSTGRESQL_PORT
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_PORT
+              key: POSTGRESQL_PORT
               name: postgres-envs--production--postgres
-        - name: POSTGRES_USER
+        - name: POSTGRESQL_USER
           valueFrom:
             configMapKeyRef:
-              key: POSTGRES_USER
+              key: POSTGRESQL_USER
               name: postgres-envs--production--postgres
         image: ' '
         name: postgres
+        ports:
+        - containerPort: 5432
         resources: {}
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
