@@ -43,3 +43,4 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+CORS_ORIGIN_ALLOW_ALL = True
